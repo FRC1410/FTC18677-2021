@@ -26,7 +26,7 @@ public class TimedShoot extends Command {
     }
 
     public void execute() {
-        localShooter.setPower(0.95);
+        localShooter.setPower(1);
     }
 
     public boolean isFinished() {

@@ -5,17 +5,18 @@ import org.firstinspires.ftc.teamcode.commands.actions.LoadShooter;
 import org.firstinspires.ftc.teamcode.commands.basecommands.CommandGroup;
 import org.firstinspires.ftc.teamcode.framework.util.Timekeeper;
 
-public class TestJankAuto extends CommandGroup {
+public class AutoWobble extends CommandGroup {
 
-    public TestJankAuto(Timekeeper timekeeper) {
+    public AutoWobble(Timekeeper timekeeper) {
         addParallel(new ExtendIntake());
-        addSequential(new TimedDrive(timekeeper, 3, 0.15));
+        addSequential(new TimedDrive(timekeeper, 3, 0.17));
 
         addSequential(new TimedDrive(timekeeper, 1.3, 0.5));
 
         addParallel(new DelayedLoadShooter(timekeeper, 2, 3));
         addSequential(new TimedShoot(timekeeper, 5));
 
-        addSequential(new TimedDrive(timekeeper, 0.8, 0.5));
+        addSequential(new TimedDrive(timekeeper, 1.1, 0.5));
+        addSequential(new TimedDrive(timekeeper, 0.7, -0.5));
     }
 }

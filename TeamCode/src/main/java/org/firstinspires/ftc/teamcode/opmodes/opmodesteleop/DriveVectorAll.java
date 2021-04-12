@@ -10,10 +10,10 @@ import org.firstinspires.ftc.teamcode.commands.actions.Shoot;
 import org.firstinspires.ftc.teamcode.commands.actions.ToggleIntakePosition;
 import org.firstinspires.ftc.teamcode.commands.looped.RunIntake;
 import org.firstinspires.ftc.teamcode.commands.looped.RunStorage;
-import org.firstinspires.ftc.teamcode.commands.looped.TankDrive;
+import org.firstinspires.ftc.teamcode.commands.looped.VectorDrive;
 
 @TeleOp
-public class DriveAll extends TeleOpModeWrapper {
+public class DriveVectorAll extends TeleOpModeWrapper {
 
     @Override
     public void teleOpInit() {
@@ -25,7 +25,7 @@ public class DriveAll extends TeleOpModeWrapper {
     @Override
     public void teleOpLoop() {
         scheduler.add(new RunIntake(DriverRightTrigger));
-        scheduler.add(new TankDrive(DriverLeftYAxis, DriverRightYAxis, DriverLeftXAxis, DriverRightXAxis));
+        scheduler.add(new VectorDrive(DriverLeftYAxis, DriverLeftXAxis, DriverRightXAxis));
 
         DriverLeftBumper.whenPressed(new FlipDriveTrain());
 
@@ -37,4 +37,3 @@ public class DriveAll extends TeleOpModeWrapper {
         DriverBButton.toggleWhenPressed(new Shoot());
     }
 }
-
