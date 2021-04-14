@@ -6,7 +6,6 @@ import org.firstinspires.ftc.teamcode.commands.basecommands.CommandGroup;
 import org.firstinspires.ftc.teamcode.framework.util.Timekeeper;
 
 public class TestJankAuto extends CommandGroup {
-
     public TestJankAuto(Timekeeper timekeeper) {
         addParallel(new ExtendIntake());
         addSequential(new TimedDrive(timekeeper, 3, 0.15));
