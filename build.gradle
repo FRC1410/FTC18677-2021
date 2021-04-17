@@ -18,9 +18,5 @@ buildscript {
 allprojects {
     repositories {
         google()
-        jcenter()
     }
 }
-//dependencies {
-//    implementation 'org.openftc:easyopencv:1.4.4'
-//}
