@@ -1,7 +1,6 @@
 package org.firstinspires.ftc.teamcode.commands.auto;
 
 import org.firstinspires.ftc.teamcode.commands.actions.ExtendIntake;
-import org.firstinspires.ftc.teamcode.commands.actions.LoadShooter;
 import org.firstinspires.ftc.teamcode.commands.basecommands.CommandGroup;
 import org.firstinspires.ftc.teamcode.framework.util.Timekeeper;
 
@@ -13,7 +12,7 @@ public class AutoWobble extends CommandGroup {
 
         addSequential(new TimedDrive(timekeeper, 1.3, 0.5));
 
-        addParallel(new DelayedLoadShooter(timekeeper, 2, 3));
+        addParallel(new TimedLoadShooter(timekeeper, 2, 3));
         addSequential(new TimedShoot(timekeeper, 5));
 
         addSequential(new TimedDrive(timekeeper, 1.1, 0.5));

@@ -12,13 +12,11 @@ public class AutoWobbleOpMode extends AutoOpModeWrapper {      //Note that you e
     @Override
     public void autoInit() {
         scheduler.enableDebugTelemetry();
-
     }
 
     //Commands to run repeatedly until finished when you press the play button go here; for auto, I'd recommend scheduler.add()-ing a single CommandGroup for this, and writing the auto in there.
     @Override
     public void autoLoop() {
-        scheduler.debugAddToExecutionList(new AutoWobble(timekeeper));
+        scheduler.add(new AutoWobble(timekeeper));
     }
-
 }

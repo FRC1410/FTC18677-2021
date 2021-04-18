@@ -1,24 +1,24 @@
-package org.firstinspires.ftc.teamcode.commands.looped;
+package org.firstinspires.ftc.teamcode.commands.actions;
 
 import org.firstinspires.ftc.teamcode.commands.basecommands.Command;
-import org.firstinspires.ftc.teamcode.framework.controllers.Axis;
 import org.firstinspires.ftc.teamcode.mechanisms.Storage;
 import org.firstinspires.ftc.teamcode.mechanisms.mechanismhandlers.MechanismEngine;
 
+import static org.firstinspires.ftc.teamcode.framework.Constants.*;
+
 public class RunStorage extends Command {
     private Storage localStorage = MechanismEngine.getInstance().getMechanism(Storage.class);
-    private Axis inputAxis;
 
-    public RunStorage(Axis inputAxis) {
+    public RunStorage() {
         Requires(localStorage);
-
-        this.inputAxis = inputAxis;
     }
 
-    public void initialize() {}
+    public void initialize() {
+
+    }
 
     public void execute() {
-        localStorage.runStorage(inputAxis.get());
+        localStorage.runStorage(STORAGE_REVERSE_SPEED);
     }
 
     public boolean isFinished() {
@@ -26,6 +26,8 @@ public class RunStorage extends Command {
     }
 
     public void end() {
-
+        localStorage.runStorage(0);
     }
+
+
 }

@@ -8,7 +8,7 @@ import org.firstinspires.ftc.teamcode.mechanisms.mechanismhandlers.MechanismEngi
 
 import static org.firstinspires.ftc.teamcode.framework.Constants.STORAGE_FEED_SPEED;
 
-public class DelayedLoadShooter extends Command {
+public class TimedLoadShooter extends Command {
     private Storage localStorage = MechanismEngine.getInstance().getMechanism(Storage.class);
     private Intake localIntake = MechanismEngine.getInstance().getMechanism(Intake.class);
 
@@ -18,7 +18,7 @@ public class DelayedLoadShooter extends Command {
 
     private double startTime;
 
-    public DelayedLoadShooter(Timekeeper timekeeper, double delay, double timeToLoad) {
+    public TimedLoadShooter(Timekeeper timekeeper, double delay, double timeToLoad) {
         Requires(localStorage);
         Requires(localIntake);
 

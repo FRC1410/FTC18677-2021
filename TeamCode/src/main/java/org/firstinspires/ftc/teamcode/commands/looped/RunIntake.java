@@ -9,24 +9,26 @@ public class RunIntake extends Command {
 
     private Intake localIntake = MechanismEngine.getInstance().getMechanism(Intake.class);
     private Axis inputAxis;
+    private Axis inputAxisTwo;
 
-    public RunIntake(Axis inputAxis) {
+    public RunIntake(Axis inputAxis, Axis inputAxisTwo) {
         Requires(localIntake);
 
         this.inputAxis = inputAxis;
+        this.inputAxisTwo = inputAxisTwo;
     }
 
     public void initialize() {}
 
     public void execute() {
-        localIntake.runIntake(inputAxis.get());
+        localIntake.runIntake(inputAxis.get() - inputAxisTwo.get());
     }
 
     public boolean isFinished() {
         return false;
     }
 
-    public void end() {
-
-    }
+    public void end() {}
 }
+//Left trigger for reverse intake
+//Run storage Y

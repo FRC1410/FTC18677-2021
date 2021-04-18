@@ -4,12 +4,10 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.teamcode.commands.actions.ExtendIntake;
 import org.firstinspires.ftc.teamcode.commands.actions.FlipDriveTrain;
 import org.firstinspires.ftc.teamcode.commands.actions.LoadShooter;
-import org.firstinspires.ftc.teamcode.commands.actions.RetractIntake;
 import org.firstinspires.ftc.teamcode.commands.actions.ReverseStorage;
 import org.firstinspires.ftc.teamcode.commands.actions.Shoot;
 import org.firstinspires.ftc.teamcode.commands.actions.ToggleIntakePosition;
 import org.firstinspires.ftc.teamcode.commands.looped.RunIntake;
-import org.firstinspires.ftc.teamcode.commands.looped.RunStorage;
 import org.firstinspires.ftc.teamcode.commands.looped.VectorDrive;
 
 @TeleOp
