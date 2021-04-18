@@ -39,11 +39,7 @@ public class TimedLoadShooter extends Command {
     }
 
     public boolean isFinished() {
-        if (timekeeper.getRuntime() > startTime + timeToLoad + delay) {
-            return true;
-        } else {
-            return false;
-        }
+        return timekeeper.getRuntime() > startTime + timeToLoad + delay;
     }
 
     public void end() {

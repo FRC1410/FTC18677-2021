@@ -30,11 +30,7 @@ public class TimedShoot extends Command {
     }
 
     public boolean isFinished() {
-        if (timekeeper.getRuntime() > startTime + timeToShootFor) {
-            return true;
-        } else {
-            return false;
-        }
+        return timekeeper.getRuntime() > startTime + timeToShootFor;
     }
 
     public void end() {

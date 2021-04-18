@@ -32,11 +32,7 @@ public class TimedDrive extends Command {
     }
 
     public boolean isFinished() {
-        if (timekeeper.getRuntime() > startTime + timeToDrive) {
-            return true;
-        } else {
-            return false;
-        }
+        return timekeeper.getRuntime() > startTime + timeToDrive;
     }
 
     public void end() {
