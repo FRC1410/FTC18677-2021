@@ -18,7 +18,7 @@ public class RunStorage extends Command {
     }
 
     public void execute() {
-        localStorage.runStorage(STORAGE_REVERSE_SPEED);
+        localStorage.runStorage(STORAGE_FEED_SPEED);
     }
 
     public boolean isFinished() {
