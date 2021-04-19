@@ -11,6 +11,7 @@ public class VectorDrive extends Command {
     private Axis forwardAxis;
     private Axis strafeAxis;
     private Axis rotateAxis;
+    private double angular_speed;
 
     public VectorDrive(Axis forwardAxis, Axis strafeAxis, Axis rotateAxis) {
         Requires(localDriveTrain);
@@ -20,15 +21,14 @@ public class VectorDrive extends Command {
         this.rotateAxis = rotateAxis;
     }
 
-    public void initialize() {
-
-    }
+    public void initialize() {}
 
     public void execute() {
+        angular_speed = rotateAxis.get()/2 + Math.pow(rotateAxis.get(), 3)/2;
         if (!localDriveTrain.isFlipped()) {
-            localDriveTrain.vectorDrive(forwardAxis.get(), strafeAxis.get(), rotateAxis.get());
+            localDriveTrain.vectorDrive(forwardAxis.get(), strafeAxis.get(), angular_speed);
         } else {
-            localDriveTrain.vectorDrive(-forwardAxis.get(), -strafeAxis.get(), rotateAxis.get());
+            localDriveTrain.vectorDrive(-forwardAxis.get(), -strafeAxis.get(), angular_speed);
         }
     }
 

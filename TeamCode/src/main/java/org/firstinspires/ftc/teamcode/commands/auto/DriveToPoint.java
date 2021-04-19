@@ -83,7 +83,7 @@ public class DriveToPoint extends Command {
 
         PID_angle_target = Math.atan(offset_PID.getPID(-translated_x * Math.abs(translated_z) / translated_z, 0, timekeeper.getRuntime() - previous_time)) * 180 / Math.PI;
         rotational_speed = angle_PID.getPID(driveTrain.getTrueHeading(), angle_target + PID_angle_target, timekeeper.getRuntime() - previous_time);
-        driveTrain.driveAll(linear_speed, 0, rotational_speed);
+        driveTrain.vectorDriveField(linear_speed, 0, rotational_speed);
 
         previous_time = timekeeper.getRuntime();
     }
@@ -97,6 +97,6 @@ public class DriveToPoint extends Command {
     }
 
     public void end() {
-        driveTrain.driveAll(ending_speed, 0, 0);
+        driveTrain.vectorDriveField(ending_speed, 0, 0);
     }
 }

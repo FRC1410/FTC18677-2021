@@ -33,12 +33,12 @@ public class Constants {
     public static final double DISTANCE_FINISHED_THRESHOLD = 1;
 
     //Distance PID Values:
-    public static final double DISTANCE_P = 0;
+    public static final double DISTANCE_P = 0.1;
     public static final double DISTANCE_I = 0;
     public static final double DISTANCE_D = 0;
 
     //Offset PID Values:
-    public static final double X_OFFSET_P = 0;
+    public static final double X_OFFSET_P = 0.04;
     public static final double X_OFFSET_I = 0;
     public static final double X_OFFSET_D = 0;
 }

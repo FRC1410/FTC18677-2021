@@ -8,6 +8,7 @@ import org.firstinspires.ftc.teamcode.commands.actions.LoadShooter;
 import org.firstinspires.ftc.teamcode.commands.actions.ReverseStorage;
 import org.firstinspires.ftc.teamcode.commands.actions.RunStorage;
 import org.firstinspires.ftc.teamcode.commands.actions.Shoot;
+import org.firstinspires.ftc.teamcode.commands.actions.ShootWithReverse;
 import org.firstinspires.ftc.teamcode.commands.actions.ToggleIntakePosition;
 import org.firstinspires.ftc.teamcode.commands.looped.ReducedTankDrive;
 import org.firstinspires.ftc.teamcode.commands.looped.RunIntake;
@@ -35,6 +36,6 @@ public class ReducedDriveAll extends TeleOpModeWrapper {
         DriverXButton.whileHeld(new ReverseStorage());
         DriverYButton.whileHeld(new RunStorage());
 
-        DriverBButton.toggleWhenPressed(new Shoot());
+        DriverBButton.toggleWhenPressed(new ShootWithReverse());
     }
 }

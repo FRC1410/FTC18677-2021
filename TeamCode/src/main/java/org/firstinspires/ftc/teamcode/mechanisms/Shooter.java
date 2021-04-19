@@ -7,8 +7,8 @@ import org.firstinspires.ftc.teamcode.mechanisms.mechanismhandlers.Mechanism;
 
 public class Shooter extends Mechanism {
 
-    private DCMotorHandler primaryMotor = new DCMotorHandler("shooter_primary_motor", false, true);
-    private DCMotorHandler secondaryMotor = new DCMotorHandler("shooter_secondary_motor", false, true);
+    private DCMotorHandler primaryMotor = new DCMotorHandler("shooter_primary_motor", false, false);
+    private DCMotorHandler secondaryMotor = new DCMotorHandler("shooter_secondary_motor", false, false);
 
     public void init(HardwareMap hwmap) {
         primaryMotor.init(hwmap);
