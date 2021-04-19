@@ -24,7 +24,7 @@ public class ReducedVectorAll extends TeleOpModeWrapper {
 
     @Override
     public void teleOpLoop() {
-        scheduler.add(new RunIntake(DriverRightTrigger));
+        scheduler.add(new RunIntake(DriverRightTrigger, DriverLeftTrigger));
         scheduler.add(new ReducedVectorDrive(DriverLeftYAxis, DriverLeftXAxis, DriverRightXAxis));
 
         DriverLeftBumper.whenPressed(new FlipDriveTrain());

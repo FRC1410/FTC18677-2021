@@ -18,7 +18,7 @@ public class DriveAll extends TeleOpModeWrapper {
     @Override
     public void teleOpInit() {
         scheduler.enableDebugTelemetry();
-        scheduler.add(new ExtendIntake());
+//        scheduler.add(new ExtendIntake());
 
     }
 
