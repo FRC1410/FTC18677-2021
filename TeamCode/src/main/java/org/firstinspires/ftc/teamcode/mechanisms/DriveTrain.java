@@ -87,7 +87,7 @@ public class DriveTrain extends Mechanism {
         backRight.setPower(bR / largest);
     }
 
-    public void driveAll(double fSpeed, double sSpeed, double rSpeed) {
+    public void vectorDriveField(double fSpeed, double sSpeed, double rSpeed) {
         left_speed = fSpeed;
         right_speed = fSpeed;
         setSpeeds((fSpeed + FRONT_WHEEL_MODIFIER * sSpeed + rSpeed), (fSpeed - FRONT_WHEEL_MODIFIER * sSpeed - rSpeed), (fSpeed - sSpeed + rSpeed), (fSpeed + sSpeed - rSpeed));
