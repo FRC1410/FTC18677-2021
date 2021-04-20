@@ -9,6 +9,7 @@ import org.firstinspires.ftc.teamcode.commands.actions.RunStorage;
 import org.firstinspires.ftc.teamcode.commands.actions.Shoot;
 import org.firstinspires.ftc.teamcode.commands.actions.ShootWithReverse;
 import org.firstinspires.ftc.teamcode.commands.actions.ToggleIntakePosition;
+import org.firstinspires.ftc.teamcode.commands.auto.TurnToAngle;
 import org.firstinspires.ftc.teamcode.commands.looped.RunIntake;
 import org.firstinspires.ftc.teamcode.commands.looped.VectorDrive;
 import org.firstinspires.ftc.teamcode.commands.looped.VectorDriveFieldOriented;
@@ -26,7 +27,7 @@ public class DriveVectorAllFieldOriented extends TeleOpModeWrapper {
     @Override
     public void teleOpLoop() {
         scheduler.add(new RunIntake(DriverRightTrigger, DriverLeftTrigger));
-        scheduler.add(new VectorDriveFieldOriented(DriverLeftYAxis, DriverLeftXAxis, DriverRightXAxis));
+        scheduler.add(new VectorDriveFieldOriented(DriverLeftYAxis, DriverLeftXAxis, DriverRightXAxis, DriverDPdDown));
 
         DriverLeftBumper.whenPressed(new FlipDriveTrain());
 
