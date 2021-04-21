@@ -13,7 +13,7 @@ import java.lang.Math;
 
 public class VectorDriveFieldOriented extends Command {
 
-    private DriveTrain driveTrain = MechanismEngine.getInstance().getMechanism(DriveTrain.class);
+    private DriveTrain localDriveTrain = MechanismEngine.getInstance().getMechanism(DriveTrain.class);
     private PIDHandler pid = new PIDHandler(ANGLE_P, ANGLE_I, ANGLE_D);
 
     private Axis leftX, leftY, rightX;
@@ -22,6 +22,8 @@ public class VectorDriveFieldOriented extends Command {
     private double currentAngle, angular_speed;
 
     public VectorDriveFieldOriented(Axis leftAxisX, Axis leftAxisY, Axis rightAxisX, Button dpadDown) {
+        Requires(localDriveTrain);
+
         this.leftX = leftAxisX;
         this.leftY = leftAxisY;
         this.rightX = rightAxisX;
@@ -31,15 +33,15 @@ public class VectorDriveFieldOriented extends Command {
     public void initialize() {}
 
     public void execute() {
-        currentAngle = driveTrain.getTrueHeading() * Math.PI / 180;
+        currentAngle = localDriveTrain.getTrueHeading() * Math.PI / 180;
 
         if (dpadDown.get()) {
-            angular_speed = pid.getPID((((((driveTrain.getTrueHeading() - SHOOT_ANGLE) + 180) % 360) + 360) % 360) - 180, 0, 0);
+            angular_speed = pid.getPID((((((localDriveTrain.getTrueHeading() - SHOOT_ANGLE) + 180) % 360) + 360) % 360) - 180, 0, 0);
         } else {
             angular_speed = rightX.get()/2 + Math.pow(rightX.get(), 3)/2;
         }
 
-        driveTrain.vectorDriveField(leftX.get()*Math.cos(currentAngle) - leftY.get()*Math.sin(currentAngle), -leftY.get()*Math.cos(currentAngle) - leftX.get()*Math.sin(currentAngle), angular_speed);
+        localDriveTrain.vectorDriveField(leftX.get()*Math.cos(currentAngle) - leftY.get()*Math.sin(currentAngle), -leftY.get()*Math.cos(currentAngle) - leftX.get()*Math.sin(currentAngle), angular_speed);
     }
 
     public boolean isFinished() { return false; }
