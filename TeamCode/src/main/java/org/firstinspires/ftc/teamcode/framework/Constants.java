@@ -11,10 +11,11 @@ public class Constants {
     //DriveTrain
     public static final double DRIVETRAIN_MOTOR_POWER_LIMIT = 1;
     public static final double FRONT_WHEEL_MODIFIER = 0.8;
+    public static final double IMU_OFFSET = -180;
 
     //Shooter
     public static final double MAX_SHOOTER_POWER = 1;
-    public static final double SHOOT_ANGLE = 14;
+    public static final double SHOOT_ANGLE = 0;
 
     //Storage
     public static final double STORAGE_FEED_SPEED = 0.85;
@@ -25,7 +26,7 @@ public class Constants {
     public static final double Y_JACKET_TICKS_PER_REVOLUTION = (1+(46/17))*(1+(46/11))*28*-0.98;
 
     //Angle PID Values:
-    public static final double ANGLE_P = 0.04;
+    public static final double ANGLE_P = 0.005;
     public static final double ANGLE_I = 0;
     public static final double ANGLE_D = 0;
 

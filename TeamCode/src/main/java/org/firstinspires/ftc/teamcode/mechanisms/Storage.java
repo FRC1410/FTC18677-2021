@@ -11,15 +11,12 @@ import org.firstinspires.ftc.teamcode.mechanisms.mechanismhandlers.Mechanism;
 public class Storage extends Mechanism {
 
     private DCMotorHandler storageMotor = new DCMotorHandler("storage_motor", true, true);
-    private DistanceSensor storageSensor;
 
     public void init(HardwareMap hwmap) {
         storageMotor.init(hwmap);
-        storageSensor = hwmap.get(DistanceSensor.class, "storage_distance_sensor");
     }
 
     public void runStorage(double power) {
         storageMotor.setPower(power);
-        TelemetryHandler.getInstance().getTelemetry().addData("Distance Sensor Value", storageSensor.getDistance(DistanceUnit.CM));
     }
 }

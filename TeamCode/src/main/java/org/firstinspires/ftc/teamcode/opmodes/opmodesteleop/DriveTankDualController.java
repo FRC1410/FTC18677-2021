@@ -8,15 +8,13 @@ import org.firstinspires.ftc.teamcode.commands.actions.RetractIntake;
 import org.firstinspires.ftc.teamcode.commands.actions.ReverseStorage;
 import org.firstinspires.ftc.teamcode.commands.actions.RunStorage;
 import org.firstinspires.ftc.teamcode.commands.actions.Shoot;
-import org.firstinspires.ftc.teamcode.commands.actions.ShootWithReverse;
 import org.firstinspires.ftc.teamcode.commands.actions.ToggleIntakePosition;
 import org.firstinspires.ftc.teamcode.commands.looped.RunIntake;
 import org.firstinspires.ftc.teamcode.commands.looped.TankDrive;
-import org.firstinspires.ftc.teamcode.commands.looped.UpdateDriveTrain;
 import org.firstinspires.ftc.teamcode.commands.looped.UpdateTeleop;
 
 @TeleOp
-public class DriveTank extends TeleOpModeWrapper {
+public class DriveTankDualController extends TeleOpModeWrapper {
 
     @Override
     public void teleOpInit() {
@@ -28,18 +26,18 @@ public class DriveTank extends TeleOpModeWrapper {
     @Override
     public void teleOpLoop() {
         scheduler.add(new UpdateTeleop());
-        scheduler.add(new RunIntake(DriverRightTrigger, DriverLeftTrigger));
-        scheduler.add(new TankDrive(DriverLeftYAxis, DriverRightYAxis, DriverLeftXAxis, DriverRightXAxis, DriverDPdDown));
+        scheduler.add(new TankDrive(DriverLeftYAxis, DriverRightYAxis, DriverLeftXAxis, DriverRightXAxis, DriverAButton));
+        scheduler.add(new RunIntake(OperatorRightTrigger, OperatorLeftTrigger));
 
         DriverLeftBumper.whenPressed(new FlipDriveTrain());
 
-        DriverAButton.whenPressed(new ToggleIntakePosition());
+        DriverRightBumper.whenPressed(new ToggleIntakePosition());
 
-        DriverRightBumper.whileHeld(new LoadShooter());
-        DriverXButton.whileHeld(new ReverseStorage());
-        DriverYButton.whileHeld(new RunStorage());
+        OperatorRightBumper.whileHeld(new LoadShooter());
+        OperatorLeftBumper.whileHeld(new ReverseStorage());
+        OperatorYButton.whileHeld(new RunStorage());
 
-        DriverBButton.toggleWhenPressed(new Shoot());
+        OperatorBButton.toggleWhenPressed(new Shoot());
     }
 }
 

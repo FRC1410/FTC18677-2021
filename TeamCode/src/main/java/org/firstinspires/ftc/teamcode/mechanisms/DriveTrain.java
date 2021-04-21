@@ -98,7 +98,7 @@ public class DriveTrain extends Mechanism {
     }
 
     public double getHeading() {
-        return -imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
+        return -imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle + IMU_OFFSET;
     }
 
     public void setTrueHeading(double heading){

@@ -4,7 +4,7 @@ import org.firstinspires.ftc.teamcode.commands.basecommands.Command;
 import org.firstinspires.ftc.teamcode.mechanisms.DriveTrain;
 import org.firstinspires.ftc.teamcode.mechanisms.mechanismhandlers.MechanismEngine;
 
-public class UpdateDriveTrain extends Command {
+public class UpdateTeleop extends Command {
 
     private DriveTrain localDriveTrain = MechanismEngine.getInstance().getMechanism(DriveTrain.class);
 
@@ -12,7 +12,7 @@ public class UpdateDriveTrain extends Command {
 
     public void execute() {
         localDriveTrain.adjustTrueHeading();
-//        localDriveTrain.incrementXZ();
+        localDriveTrain.setLastHeading();
     }
 
     public boolean isFinished() { return false; }
