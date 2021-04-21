@@ -26,7 +26,7 @@ public class DriveTank extends TeleOpModeWrapper {
     @Override
     public void teleOpLoop() {
         scheduler.add(new RunIntake(DriverRightTrigger, DriverLeftTrigger));
-        scheduler.add(new org.firstinspires.ftc.teamcode.commands.looped.TankDrive(DriverLeftYAxis, DriverRightYAxis, DriverLeftXAxis, DriverRightXAxis));
+        scheduler.add(new TankDrive(DriverLeftYAxis, DriverRightYAxis, DriverLeftXAxis, DriverRightXAxis, DriverDPdDown));
 
         DriverLeftBumper.whenPressed(new FlipDriveTrain());
 

@@ -25,7 +25,7 @@ public class DriveVectorAll extends TeleOpModeWrapper {
     @Override
     public void teleOpLoop() {
         scheduler.add(new RunIntake(DriverRightTrigger, DriverLeftTrigger));
-        scheduler.add(new VectorDrive(DriverLeftYAxis, DriverLeftXAxis, DriverRightXAxis));
+        scheduler.add(new VectorDrive(DriverLeftYAxis, DriverLeftXAxis, DriverRightXAxis, DriverDPdDown));
 
         DriverLeftBumper.whenPressed(new FlipDriveTrain());
 

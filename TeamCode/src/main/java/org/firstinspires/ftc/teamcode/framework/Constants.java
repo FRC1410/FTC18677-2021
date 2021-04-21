@@ -14,6 +14,7 @@ public class Constants {
 
     //Shooter
     public static final double MAX_SHOOTER_POWER = 1;
+    public static final double SHOOT_ANGLE = 14;
 
     //Storage
     public static final double STORAGE_FEED_SPEED = 0.85;
