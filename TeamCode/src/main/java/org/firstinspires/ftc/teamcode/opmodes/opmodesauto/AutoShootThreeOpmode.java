@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.opmodes.opmodesauto;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
 import org.firstinspires.ftc.teamcode.commands.auto.AutoShootThree;
+import org.firstinspires.ftc.teamcode.commands.looped.UpdateDriveTrain;
 
 //This little annotation thingy is important, it's what makes the OpMode come up on the phone
 @Autonomous
@@ -11,12 +12,14 @@ public class AutoShootThreeOpmode extends AutoOpModeWrapper {      //Note that y
     @Override
     public void autoInit() {
         scheduler.enableDebugTelemetry();
+        scheduler.add(new UpdateDriveTrain());
     }
 
     //Commands to run repeatedly until finished when you press the play button go here; for auto, I'd recommend scheduler.add()-ing a single CommandGroup for this, and writing the auto in there.
     @Override
     public void autoLoop() {
         scheduler.add(new AutoShootThree(timekeeper));
+        scheduler.add(new UpdateDriveTrain());
     }
 
 }

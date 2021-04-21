@@ -12,6 +12,7 @@ import org.firstinspires.ftc.teamcode.commands.actions.ShootWithReverse;
 import org.firstinspires.ftc.teamcode.commands.actions.ToggleIntakePosition;
 import org.firstinspires.ftc.teamcode.commands.looped.RunIntake;
 import org.firstinspires.ftc.teamcode.commands.looped.TankDrive;
+import org.firstinspires.ftc.teamcode.commands.looped.UpdateDriveTrain;
 
 @TeleOp
 public class DriveTank extends TeleOpModeWrapper {
@@ -19,12 +20,14 @@ public class DriveTank extends TeleOpModeWrapper {
     @Override
     public void teleOpInit() {
         scheduler.enableDebugTelemetry();
+        scheduler.add(new UpdateDriveTrain());
 //        scheduler.add(new ExtendIntake());
 
     }
 
     @Override
     public void teleOpLoop() {
+        scheduler.add(new UpdateDriveTrain());
         scheduler.add(new RunIntake(DriverRightTrigger, DriverLeftTrigger));
         scheduler.add(new TankDrive(DriverLeftYAxis, DriverRightYAxis, DriverLeftXAxis, DriverRightXAxis, DriverDPdDown));
 

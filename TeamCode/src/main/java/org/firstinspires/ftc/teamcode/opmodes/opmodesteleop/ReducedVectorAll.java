@@ -12,6 +12,7 @@ import org.firstinspires.ftc.teamcode.commands.actions.ShootWithReverse;
 import org.firstinspires.ftc.teamcode.commands.actions.ToggleIntakePosition;
 import org.firstinspires.ftc.teamcode.commands.looped.ReducedVectorDrive;
 import org.firstinspires.ftc.teamcode.commands.looped.RunIntake;
+import org.firstinspires.ftc.teamcode.commands.looped.UpdateDriveTrain;
 import org.firstinspires.ftc.teamcode.commands.looped.VectorDrive;
 
 @TeleOp
@@ -19,6 +20,7 @@ public class ReducedVectorAll extends TeleOpModeWrapper {
 
     @Override
     public void teleOpInit() {
+        scheduler.add(new UpdateDriveTrain());
         scheduler.enableDebugTelemetry();
         scheduler.add(new ExtendIntake());
 
@@ -26,6 +28,7 @@ public class ReducedVectorAll extends TeleOpModeWrapper {
 
     @Override
     public void teleOpLoop() {
+        scheduler.add(new UpdateDriveTrain());
         scheduler.add(new RunIntake(DriverRightTrigger, DriverLeftTrigger));
         scheduler.add(new ReducedVectorDrive(DriverLeftYAxis, DriverLeftXAxis, DriverRightXAxis));
 

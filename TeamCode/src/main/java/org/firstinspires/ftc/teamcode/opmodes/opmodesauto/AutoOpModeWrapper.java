@@ -4,6 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import org.firstinspires.ftc.teamcode.commands.*;
 import org.firstinspires.ftc.teamcode.framework.util.TelemetryHandler;
 import org.firstinspires.ftc.teamcode.framework.util.Timekeeper;
+import org.firstinspires.ftc.teamcode.mechanisms.DriveTrain;
 import org.firstinspires.ftc.teamcode.mechanisms.mechanismhandlers.MechanismEngine;
 
 abstract class AutoOpModeWrapper extends OpMode {
@@ -40,6 +41,9 @@ abstract class AutoOpModeWrapper extends OpMode {
         telemetry.addData("Cycle time", timekeeper.getCycleTime() + "ms");
         telemetry.addData("Average Cycle Time", timekeeper.getAverageCycleTime() + "ms");
         timekeeper.update(getRuntime());
+
+        MechanismEngine.getInstance().getMechanism(DriveTrain.class).adjustTrueHeading();
+        MechanismEngine.getInstance().getMechanism(DriveTrain.class).incrementXZ();
 
         scheduler.run();
     }

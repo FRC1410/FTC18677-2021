@@ -3,6 +3,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
 import org.firstinspires.ftc.teamcode.commands.auto.AutoWobble;
 import org.firstinspires.ftc.teamcode.commands.auto.TimedDrive;
+import org.firstinspires.ftc.teamcode.commands.looped.UpdateDriveTrain;
 
 //This little annotation thingy is important, it's what makes the OpMode come up on the phone
 @Autonomous
@@ -12,11 +13,13 @@ public class AutoWobbleOpMode extends AutoOpModeWrapper {      //Note that you e
     @Override
     public void autoInit() {
         scheduler.enableDebugTelemetry();
+        scheduler.add(new UpdateDriveTrain());
     }
 
     //Commands to run repeatedly until finished when you press the play button go here; for auto, I'd recommend scheduler.add()-ing a single CommandGroup for this, and writing the auto in there.
     @Override
     public void autoLoop() {
         scheduler.add(new AutoWobble(timekeeper));
+        scheduler.add(new UpdateDriveTrain());
     }
 }
