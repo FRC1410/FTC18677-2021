@@ -12,30 +12,32 @@ public class AutoSevenRingWobble extends CommandGroup {
         addSequential(new SetOdometry(50, -63, 0));
 
         addParallel(new ExtendIntake());
-        addSequential(new DriveToPoint(timekeeper, 0, 0, 0, 0));
-        //Add drive to point to get to wobble drop zone (Zone C, farthest back from robot) and then in position to shoot 3 rings
+        addSequential(new DriveToPoint(timekeeper, 60, -20, 0, 0.6)); //(0,0) is located in direct center of field for drive to point coordinate purposes
+        addSequential(new DriveToPoint(timekeeper, 60, 40, 0, 0.4));
+        addSequential(new DriveToPoint(timekeeper, 60, 57, 40, 0));
+        addSequential(new DriveToPoint(timekeeper, 40, 30, 0, -0.8));
 
-        addParallel(new TimedLoadShooter(timekeeper, 2, 3));
+        addParallel(new TimedReverseStorage(timekeeper, 1, 0.5));
+        addSequential(new DriveToPoint(timekeeper, 40, -5, 0));
+        addParallel(new TimedLoadShooter(timekeeper, 2, 2));
         addSequential(new TimedShoot(timekeeper, 5));
 
-        //Add drive to point that faces robot in ideal ring pickup position
         addParallel(new TimedLoadShooter(timekeeper, 2, 3));
-        addSequential(new DriveToPoint(timekeeper,0, 0,0)); //Drive through rings and a little past
+        addSequential(new DriveToPoint(timekeeper, 35, -25, 0)); //Drive through rings and a little past
 
-        //Add drive to point to get back to nav line
-
-        addParallel(new TimedLoadShooter(timekeeper, 2, 3));
+        addParallel(new TimedReverseStorage(timekeeper, 1, 0.5));
+        addSequential(new DriveToPoint(timekeeper, 40, -5, 0));
+        addParallel(new TimedLoadShooter(timekeeper, 2, 2));
         addSequential(new TimedShoot(timekeeper, 5));
 
-        //Add drive to point that gets us back to last ring
         addParallel(new TimedLoadShooter(timekeeper, 2, 3));
-        addSequential(new DriveToPoint(timekeeper,0, 0,0)); //Drive through rings and a little past
+        addSequential(new DriveToPoint(timekeeper, 35, -25, 0)); //Drive through rings and a little past
 
-        //Add drive to point to get back to nav line
-
-        addParallel(new TimedLoadShooter(timekeeper, 2, 3));
+        addParallel(new TimedReverseStorage(timekeeper, 1, 0.5));
+        addSequential(new DriveToPoint(timekeeper, 40, -5, 0));
+        addParallel(new TimedLoadShooter(timekeeper, 2, 2));
         addSequential(new TimedShoot(timekeeper, 5));
 
-        //Add drive to point to get on to nav line
+        addSequential(new DriveToPoint(timekeeper, 40, 10, 0)); //Park on Nav Line
     }
 }

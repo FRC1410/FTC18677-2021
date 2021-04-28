@@ -11,7 +11,7 @@ public class Constants {
     //DriveTrain
     public static final double DRIVETRAIN_MOTOR_POWER_LIMIT = 1;
     public static final double FRONT_WHEEL_MODIFIER = 0.8;
-    public static final double IMU_OFFSET = -180;
+    public static final double IMU_OFFSET = 0;
 
     //Shooter
     public static final double MAX_SHOOTER_POWER = 1;

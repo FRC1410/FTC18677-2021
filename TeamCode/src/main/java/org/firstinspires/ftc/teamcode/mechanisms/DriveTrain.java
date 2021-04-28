@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.mechanisms;
 
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
+import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.mechanisms.devicehandlers.DCMotorWithEncoderHandler;
 import org.firstinspires.ftc.teamcode.mechanisms.mechanismhandlers.Mechanism;
 
@@ -57,7 +58,14 @@ public class DriveTrain extends Mechanism {
         return flipped;
     }
 
-    //I'm just gonna assume we know how to feed the motors proper values at this point, I'm not clipping their speeds anymore
+    public void postEncoderValues(Telemetry telemetry) {
+        telemetry.addData("Front Left Value", frontLeft.getEncoderValue());
+        telemetry.addData("Front Right Value", frontRight.getEncoderValue());
+        telemetry.addData("Back Left Value", backLeft.getEncoderValue());
+        telemetry.addData("Back Right Value", backRight.getEncoderValue());
+    }
+
+                                  //I'm just gonna assume we know how to feed the motors proper values at this point, I'm not clipping their speeds anymore
     public void setRawSpeeds(double frontLeftSpeed, double frontRightSpeed, double backLeftSpeed, double backRightSpeed) {
         frontLeft.setPower(frontLeftSpeed * DRIVETRAIN_MOTOR_POWER_LIMIT);
         frontRight.setPower(frontRightSpeed * DRIVETRAIN_MOTOR_POWER_LIMIT);
@@ -122,7 +130,7 @@ public class DriveTrain extends Mechanism {
     }
 
     public double getTrueHeading() {
-        return trueHeading;
+        return trueHeading + IMU_OFFSET;
     }
 
     public double getDistance() {

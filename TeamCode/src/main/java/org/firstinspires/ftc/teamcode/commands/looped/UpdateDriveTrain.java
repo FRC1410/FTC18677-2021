@@ -12,7 +12,7 @@ public class UpdateDriveTrain extends Command {
 
     public void execute() {
         localDriveTrain.adjustTrueHeading();
-//        localDriveTrain.incrementXZ();
+        localDriveTrain.incrementXZ();
     }
 
     public boolean isFinished() { return false; }
